@@ -15,7 +15,6 @@ class RegionController extends Controller
 
     public function create(Request $request)
     {
-        print($request->all());
         $region = new Region($request->all());
         $region->save();
         return response()->json($region, 200);
@@ -39,10 +38,7 @@ class RegionController extends Controller
     public function update(Request $request, $id)
     {
         $region = Region::find($id);
-        $region->name = $request->name;
-        $region->description = $request->description;
-        $region->price = $request->price;
-        $region->stock = $request->stock;
+        $region->region = $request->region;
         $region->save();
         return response()->json($region, 200);
     }
